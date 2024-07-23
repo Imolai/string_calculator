@@ -16,13 +16,13 @@ empty or null input, and ignoring numbers greater than 100. Negative numbers are
 1. Clone the repository:
 
    ```sh
-   git clone <repository_url>
+   git clone https://github.com/Imolai/string_calculator.git
    ```
 
 2. Navigate to the project directory:
 
    ```sh
-   cd string-calculator
+   cd string_calculator
    ```
 
 3. Install the required packages:
