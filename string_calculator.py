@@ -25,6 +25,7 @@ class StringCalculator:
 
         Args:
             numbers (str): A string containing numbers separated by delimiters.
+                To add custom delimiter, e.g. ";", `numbers` is "//;\\n1;2;3"
 
         Returns:
             int: The sum of the numbers in the input string.
@@ -35,7 +36,7 @@ class StringCalculator:
         if not numbers:
             return 0
 
-        # Handle different delimiters
+        # Handle custom delimiters
         delimiters = self.default_delimiters
         if numbers.startswith("//"):
             parts = numbers.split("\n", 1)
@@ -50,7 +51,12 @@ class StringCalculator:
         total = 0
         for num in num_list:
             if num:
-                value = int(num)
+                try:
+                    value = int(num)
+                except ValueError as value_exception:
+                    raise ValueError(
+                        "Non integer numbers are not allowed"
+                    ) from value_exception
                 if value < 0:
                     raise ValueError("Negative numbers are not allowed")
                 if value <= 100:

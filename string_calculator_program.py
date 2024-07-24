@@ -8,7 +8,8 @@ def main() -> None:
     """Main function to run the String Calculator as an independent program."""
     parser = argparse.ArgumentParser(description="Run the String Calculator.")
     parser.add_argument(
-        "numbers", help="A string containing numbers separated by delimiters."
+        "numbers",
+        help="A string containing numbers separated by delimiters.",
     )
     args = parser.parse_args()
 

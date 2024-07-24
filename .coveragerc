@@ -1,0 +1,4 @@
+[run]
+source = .
+parallel = true
+# omit = test_*.py

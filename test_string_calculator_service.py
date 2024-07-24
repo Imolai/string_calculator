@@ -56,25 +56,9 @@ class TestStringCalculatorService(unittest.TestCase):
         """Test handling of a null input."""
         self.assert_result(None, 0)
 
-    def test_add_service_with_default_delimiters(self):
-        """Test adding numbers with default delimiters."""
-        self.assert_result("1,2,3", 6)
-
-    def test_add_service_with_different_delimiters(self):
-        """Test adding numbers with different delimiters."""
-        self.assert_result("1 2 3", 6)
-
-    def test_add_service_with_custom_delimiters(self):
-        """Test adding numbers with custom delimiters."""
-        self.assert_result("//;\n1;2;3", 6)
-
     def test_no_negative_numbers_allowed(self):
         """Test that negative numbers are not allowed."""
         self.assert_error("1,-2,3", "Negative numbers are not allowed")
-
-    def test_ignore_numbers_greater_than_100(self):
-        """Test that numbers greater than 100 are ignored."""
-        self.assert_result("1,2,100,101", 103)
 
     def test_invalid_json(self):
         """Test that invalid JSON data results in a bad request."""

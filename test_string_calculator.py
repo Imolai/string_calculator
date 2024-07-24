@@ -35,6 +35,11 @@ class TestStringCalculator(unittest.TestCase):
         """Test adding numbers with custom delimiters."""
         self.assertEqual(self.calc.add("//;\n1;2;3"), 6)
 
+    def test_integer_numbers_allowed(self):
+        """Test that non integer numbers are not allowed."""
+        with self.assertRaises(ValueError):
+            self.calc.add("1,2,3.14")
+
     def test_no_negative_numbers_allowed(self):
         """Test that negative numbers are not allowed."""
         with self.assertRaises(ValueError):

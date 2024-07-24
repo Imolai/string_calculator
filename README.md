@@ -125,26 +125,45 @@ This can be used as an independent program, a library function, or a service.
 
 ### Is it extendable with new functionalities and constraints?
 
-Yes, the code is designed to be extendable.
+Yes, the code is designed to be extendable:
+
+- We can easily extend the `StringCalculator` class to support new delimiters by modifying the
+  `__default_delimiters` list field or adding a new method to set custom delimiters.
+- We can add operations as new methods and new endpoints of the Flask app to support additional
+  operations (e.g., subtracting, multiplying numbers, etc.).
+- We can extend the `StringCalculator` class to ignore specific numbers, so we can add an additional
+  list field to the class (e.g. `__ignored_numbers`) to specify the numbers to be ignored.
 
 ### What delimiters do I accept and why?
 
-The default delimiters are comma (`,`) and space (` `).
+The default delimiters are comma (`,`) and space (` `), see in the `__default_delimiters` list
+field.
 
 Custom delimiters can be specified at the beginning of the input string.
 
 ### How do I handle exceptions?
 
 Currently, the code raises a `ValueError` for negative numbers. Additional exception handling can be
-added as required.
+added as required. Let's say, the code ignores numbers greater than 100 silently according to the
+requirements. But we can change this behavior by raising a `ValueError` exception too. Or, we can
+define a custom exception for the `StringCalculator` by inheriting the `Exception` class.
 
 ### What are constraints on input and output?
 
-Input should be a string. Output is an integer sum of the numbers.
+Input should be a string containing positive integer numbers and delimiters and maybe spaces. Custom
+delimiters are allowed also.
+
+Output is an integer sum of the numbers. Or, in case of any error, an error message ("invalid
+literal for int() with base 10: '...'"). Or, `ValueError` exception for non integer, or negative
+numbers.
 
 ### How should tests be organized?
 
-Tests are organized using the `unittest` framework in separate test files for different usages.
+Tests are organized using the `unittest` framework in separate test files for different usages:
+
+- a library function (all of the library functionality),
+- an independent program,
+- a service.
 
 ## Table of Contents
 
