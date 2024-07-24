@@ -8,7 +8,7 @@ class TestStringCalculatorIndependentProgram(unittest.TestCase):
     def run_program(self, *args):
         """Run the string calculator program with the given input string."""
         result = subprocess.run(
-            ["coverage", "run", "string_calculator_program.py", *args],
+            ["coverage", "run", "application/string_calculator_program.py", *args],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,

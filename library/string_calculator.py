@@ -5,9 +5,15 @@ from typing import List, Optional
 class StringCalculator:
     """A simple string calculator to add numbers from a string input."""
 
-    def __init__(self):
-        """Initialize the StringCalculator with default delimiters."""
-        self.__default_delimiters = [",", " "]
+    def __init__(self, delimiters: Optional[List[str]] = None):
+        """
+        Initialize the StringCalculator with default delimiters.
+
+        Args:
+            delimiters (Optional[List[str]]): List of delimiters to split the input string.
+                                              If None, default delimiters [",", " "] will be used.
+        """
+        self.__default_delimiters = delimiters if delimiters is not None else [",", " "]
 
     @property
     def default_delimiters(self) -> List[str]:

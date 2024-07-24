@@ -1,7 +1,12 @@
 import argparse
+import logging
 import sys
 
-from string_calculator import StringCalculator
+from library.string_calculator import StringCalculator
+
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 
 def main() -> None:
@@ -19,8 +24,8 @@ def main() -> None:
     try:
         result = calc.add(numbers)
         print(result)
-    except ValueError as e:
-        print(f"Error: {e}", file=sys.stderr)
+    except ValueError as exc:
+        logging.error("Error: %s", exc)
         sys.exit(1)
 
 

@@ -1,6 +1,6 @@
 import unittest
 
-from string_calculator import StringCalculator
+from library.string_calculator import StringCalculator
 
 
 class TestStringCalculator(unittest.TestCase):

@@ -3,8 +3,8 @@ import unittest
 from http import HTTPStatus as HTTP
 from typing import Any, Dict, Optional
 
-from app import app
 from flask.testing import FlaskClient
+from service.app import app
 
 
 class TestStringCalculatorService(unittest.TestCase):
